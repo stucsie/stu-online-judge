@@ -1,0 +1,27 @@
+{
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "pixnet/pixframework",
+                "version": "dev-master",
+                "source": {
+                    "url": "https://github.com/pixnet/pixframework.git",
+                    "type": "git",
+                    "reference": "984e68b3b6db3918d73ae2d347fc22a571770efa"
+                },
+                "autoload": {
+                    "psr-0": {
+                        "Pix": "./"
+                    }
+                },
+                "include-path": ["./"]
+            }
+        }
+    ],
+    "require": {
+        "psr/log": "dev-master",
+        "pixnet/pixframework": "dev-master"
+    },
+    "minimum-stability": "dev"
+}
