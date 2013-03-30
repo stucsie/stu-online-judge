@@ -45,7 +45,7 @@ class UserRow extends \Pix_Table_Row
 class User extends \Pix_Table
 {
     public $_name = 'user';
-    public $_rowClass = 'UserRow';
+    public $_rowClass = '\\Stuoj\\Model\\UserRow';
 
     /**
      * @codeCoverageIgnore
