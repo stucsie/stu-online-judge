@@ -12,5 +12,5 @@ ini_set('display_errors', $flag);
 Pix_Controller::addCommonHelpers();
 Pix_Partial::setTrimMode(true);
 Pix_Partial::addCommonHelpers();
-Pix_Controller::addDispatcher(new Pix_Controller_Dispatcher_Default());
-Pix_Controller::dispatch(__DIR__ . '/src');
+Pix_Controller::addDispatcher(new Stuoj\Controller\ControllerDispatcher());
+Pix_Controller::dispatch(__DIR__ . '/src/Stuoj');

@@ -3,12 +3,12 @@
         {
             "type": "package",
             "package": {
-                "name": "pixnet/pixframework",
+                "name": "afutseng/pixframework",
                 "version": "dev-master",
                 "source": {
-                    "url": "https://github.com/pixnet/pixframework.git",
+                    "url": "https://github.com/afutseng/pixframework.git",
                     "type": "git",
-                    "reference": "984e68b3b6db3918d73ae2d347fc22a571770efa"
+                    "reference": "663b5e90503a352d22ebb8414a2a4e8719068cb7"
                 },
                 "autoload": {
                     "psr-0": {
@@ -21,7 +21,12 @@
     ],
     "require": {
         "psr/log": "dev-master",
-        "pixnet/pixframework": "dev-master"
+        "afutseng/pixframework": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Stuoj\\": "src/"
+        }
     },
     "minimum-stability": "dev"
 }

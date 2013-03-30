@@ -1,13 +1,13 @@
 {
-    "hash": "053395fb74fb17515c205624dd3e4a8d",
+    "hash": "a302e03aa47d855bfd5428cea4b769ef",
     "packages": [
         {
-            "name": "pixnet/pixframework",
+            "name": "afutseng/pixframework",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/pixnet/pixframework.git",
-                "reference": "984e68b3b6db3918d73ae2d347fc22a571770efa"
+                "url": "https://github.com/afutseng/pixframework.git",
+                "reference": "663b5e90503a352d22ebb8414a2a4e8719068cb7"
             },
             "type": "library",
             "autoload": {
@@ -18,7 +18,7 @@
             "include-path": [
                 "./"
             ],
-            "time": "2013-03-22 02:58:14"
+            "time": "2013-03-30 10:42:04"
         },
         {
             "name": "psr/log",
@@ -68,7 +68,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "psr/log": 20,
-        "pixnet/pixframework": 20
+        "afutseng/pixframework": 20
     },
     "platform": [
 
