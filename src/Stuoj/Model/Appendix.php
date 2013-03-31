@@ -59,7 +59,7 @@ class Appendix extends \Pix_Table
         $this->_columns['file_name'] = ['type' => 'varchar', 'size' => 255];
         $this->_columns['created_at'] = ['type' => 'int', 'size' => 11];
 				
-				$this->_relations['problem_id'] = array('rel' => 'has_many', 'type' => 'Problem', 'foreign_key' => 'id', 'delete' => true);
+				$this->_relations['problem'] = ['rel' => 'has_many', 'type' => 'Problem', 'foreign_key' => 'id', 'delete' => true];
     }
 
     /**
