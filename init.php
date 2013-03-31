@@ -16,9 +16,3 @@ Pix_Table::setDefaultDb(new Pix_Table_Db_Adapter_MysqlConf($obj));
 Pix_Table::addStaticResultSetHelper('Pix_Array_Volume');
 
 define('PROJECT_NAME', 'STU Online Judge');
-
-Pix_Controller::addCommonHelpers();
-Pix_Partial::setTrimMode(true);
-Pix_Partial::addCommonHelpers();
-Pix_Controller::addDispatcher(new Stuoj\Controller\ControllerDispatcher());
-Pix_Controller::dispatch(__DIR__ . '/src/Stuoj');
