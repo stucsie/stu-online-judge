@@ -55,6 +55,7 @@ class Problem extends \Pix_Table
         $this->_primary = 'id';
 
         $this->_columns['id'] = ['type' => 'int', 'size' => 10, 'unsigned' => true, 'auto_increment' => true];
+        $this->_columns['title'] = ['type' => 'varchar', 'size' => 255,'default' => ''];
         $this->_columns['content'] = ['type' => 'text', 'default' => '']
         $this->_columns['sourcd_code'] = ['type' => 'text', 'default' => ''];
         $this->_columns['answer'] = ['type' => 'varchar', 'size' => 100,'default' => ''];
@@ -73,6 +74,7 @@ class Problem extends \Pix_Table
     public static function add($data)
     {
         $insert_data = [
+            'title'     => $data['title'],
             'content'     => $data['name'],
             'source_code'    => $data['email']
             'answer'    => $data['answer']
