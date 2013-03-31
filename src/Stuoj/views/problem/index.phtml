@@ -13,7 +13,7 @@
         <?php foreach ($this->problems as $problem): ?>
         <tr>
             <td><?= $problem->id ?></td>
-            <td><?= $problem->title ?></td>
+            <td><a href="/problem/browse/<?= $problem->id ?>"><?= $problem->title ?></a></td>
         </tr>
         <?php endforeach; ?>
         </tbody>
