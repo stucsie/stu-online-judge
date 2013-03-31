@@ -57,7 +57,7 @@ class ExamProblem extends \Pix_Table
         $this->_columns['id'] = ['type' => 'int', 'size' => 10, 'auto_increment' => true];
         $this->_columns['exap_paper_id'] = ['type' => 'int', 'size' => 10];
         $this->_columns['problem_id'] = ['type' => 'int', 'size' => 10];
-        $this->_columns['fraction'] = ['type' => 'tinyint', 'size' => 4];
+        $this->_columns['fraction'] = ['type' => 'tinyint', 'size' => 4, 'default' => '0'];
     }
 
     /**
