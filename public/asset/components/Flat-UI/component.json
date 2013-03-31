@@ -1,0 +1,9 @@
+{
+  "name": "Flat-UI",
+  "version": "0.0.0",
+  "commit": "5c9e5454ad6a108e6d1c066efa93d57a9932ed21",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/designmodo/Flat-UI.git"
+  }
+}

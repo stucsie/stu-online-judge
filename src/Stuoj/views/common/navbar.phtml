@@ -1,0 +1,20 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a href="/" class="brand"><?= PROJECT_NAME ?></a>
+            <p class="navbar-text pull-right"><a class="navbar-link" href="/login">登入</a></p>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li <?= ('problem' === $this->controllerName) ? 'class="active"' : '' ?>><a href="/problem/">題庫</a></li>
+
+                </ul>
+            </div><!-- end .nav-collapse -->
+        </div><!-- end .container-fluid -->
+    </div><!-- end .navbar-inner -->
+</div><!-- end .navbar -->
