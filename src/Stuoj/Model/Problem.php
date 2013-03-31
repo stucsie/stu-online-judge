@@ -44,7 +44,7 @@ class ProblemRow extends \Pix_Table_Row
  */
 class Problem extends \Pix_Table
 {
-    public $_name = 'Problem';
+    public $_name = 'problem';
     public $_rowClass = '\\Stuoj\\Model\\ProblemRow';
 
     /**
@@ -56,7 +56,7 @@ class Problem extends \Pix_Table
 
         $this->_columns['id'] = ['type' => 'int', 'size' => 10, 'unsigned' => true, 'auto_increment' => true];
         $this->_columns['title'] = ['type' => 'varchar', 'size' => 255,'default' => ''];
-        $this->_columns['content'] = ['type' => 'text', 'default' => '']
+        $this->_columns['content'] = ['type' => 'text', 'default' => ''];
         $this->_columns['sourcd_code'] = ['type' => 'text', 'default' => ''];
         $this->_columns['answer'] = ['type' => 'varchar', 'size' => 100,'default' => ''];
         $this->_columns['input'] = ['type' => 'varchar', 'size' => 255,'default' => ''];
@@ -76,9 +76,9 @@ class Problem extends \Pix_Table
         $insert_data = [
             'title'       => $data['title'],
             'content'     => $data['content'],
-            'source_code' => $data['source_code']
-            'answer'      => $data['answer']
-            'input'       => $data['input']
+            'source_code' => $data['source_code'],
+            'answer'      => $data['answer'],
+            'input'       => $data['input'],
             'output'      => $data['output']
         ];
 
