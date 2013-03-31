@@ -1,0 +1,8 @@
+<?= $this->partial('/common/header.phtml', $this) ?>
+<?= $this->partial('/common/navbar.phtml', $this) ?>
+<div class="container">
+    <h1><?= $this->problem->title ?></h1>
+    <p><?= $this->problem->content ?></p>
+    <pre><?= $this->problem->source_code ?></pre>
+</div>
+<?= $this->partial('/common/footer.phtml', $this) ?>

@@ -1,0 +1,22 @@
+<?= $this->partial('/common/header.phtml', $this) ?>
+<?= $this->partial('/common/navbar.phtml', $this) ?>
+<div class="container">
+    <h1>題目列表</h1>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>標題</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($this->problems as $problem): ?>
+        <tr>
+            <td><?= $problem->id ?></td>
+            <td><?= $problem->title ?></td>
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<?= $this->partial('/common/footer.phtml', $this) ?>
