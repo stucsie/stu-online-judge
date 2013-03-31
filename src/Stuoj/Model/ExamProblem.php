@@ -58,6 +58,9 @@ class ExamProblem extends \Pix_Table
         $this->_columns['exap_paper_id'] = ['type' => 'int', 'size' => 10];
         $this->_columns['problem_id'] = ['type' => 'int', 'size' => 10];
         $this->_columns['fraction'] = ['type' => 'tinyint', 'size' => 4, 'default' => '0'];
+
+		$this->_relations['problem'] = ['rel' => 'has_many', 'type' => 'Problem', 'foreign_key' => 'id', 'delete' => true];
+		$this->_relations['exam_paper'] = ['rel' => 'has_many', 'type' => 'ExamPaper', 'foreign_key' => 'id', 'delete' => true];
     }
 
     /**
