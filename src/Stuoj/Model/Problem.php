@@ -69,14 +69,14 @@ class Problem extends \Pix_Table
      * @param array $data
      * @static
      * @access public
-     * @return void
+     * @return ProblemRow
      */
     public static function add($data)
     {
         $insert_data = [
             'title'     => $data['title'],
-            'content'     => $data['name'],
-            'source_code'    => $data['email']
+            'content'     => $data['content'],
+            'source_code'    => $data['source_code']
             'answer'    => $data['answer']
             'input'     => $data['input']
             'output'    => $data['output']
