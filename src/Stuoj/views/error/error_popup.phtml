@@ -1,0 +1,6 @@
+<?= $this->partial('/common/header.phtml', $this) ?>
+<script>
+alert('<?= $this->escape($this->message) ?>');
+document.location = '<?= $this->escape($this->url) ?>';
+</script>
+<?= $this->partial('/common/footer.phtml', $this) ?>
