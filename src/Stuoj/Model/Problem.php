@@ -74,12 +74,12 @@ class Problem extends \Pix_Table
     public static function add($data)
     {
         $insert_data = [
-            'title'     => $data['title'],
+            'title'       => $data['title'],
             'content'     => $data['content'],
-            'source_code'    => $data['source_code']
-            'answer'    => $data['answer']
-            'input'     => $data['input']
-            'output'    => $data['output']
+            'source_code' => $data['source_code']
+            'answer'      => $data['answer']
+            'input'       => $data['input']
+            'output'      => $data['output']
         ];
 
         return self::insert($insert_data);
