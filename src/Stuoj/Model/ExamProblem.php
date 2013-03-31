@@ -3,11 +3,11 @@
 namespace Stuoj\Model;
 
 /**
- * AppendixRow
+ * ExamProblemRow
  *
  * @uses Pix_Table_Row
  */
-class AppendixRow extends \Pix_Table_Row
+class ExamProblemRow extends \Pix_Table_Row
 {
     public function preInsert()
     {
@@ -23,7 +23,7 @@ class AppendixRow extends \Pix_Table_Row
      */
     public function update($data)
     {
-        $table = Appendix::getTable();
+        $table = ExamProblem::getTable();
         $columns = array_keys($table->_columns);
         $update_data = [];
 
@@ -38,14 +38,14 @@ class AppendixRow extends \Pix_Table_Row
 }
 
 /**
- * Appendix
+ * ExamProblem
  *
  * @uses Pix_Table
  */
-class Appendix extends \Pix_Table
+class ExamProblem extends \Pix_Table
 {
-    public $_name = 'Appendix';
-    public $_rowClass = '\\Stuoj\\Model\\AppendixRow';
+    public $_name = 'ExamProblem';
+    public $_rowClass = '\\Stuoj\\Model\\ExamProblemRow';
 
     /**
      * @codeCoverageIgnore
@@ -55,11 +55,9 @@ class Appendix extends \Pix_Table
         $this->_primary = 'id';
 
         $this->_columns['id'] = ['type' => 'int', 'size' => 10, 'auto_increment' => true];
+        $this->_columns['exap_paper_id'] = ['type' => 'int', 'size' => 10];
         $this->_columns['problem_id'] = ['type' => 'int', 'size' => 10];
-        $this->_columns['file_name'] = ['type' => 'varchar', 'size' => 255];
-        $this->_columns['created_at'] = ['type' => 'int', 'size' => 11];
-				
-				$this->_relations['problem'] = ['rel' => 'has_many', 'type' => 'Problem', 'foreign_key' => 'id', 'delete' => true];
+        $this->_columns['fraction'] = ['type' => 'tinyint', 'size' => 4, 'default' => '0'];
     }
 
     /**
@@ -68,13 +66,14 @@ class Appendix extends \Pix_Table
      * @param array $data
      * @static
      * @access public
-     * @return AppendixRow
+     * @return ExamProblemRow
      */
     public static function add($data)
     {
         $insert_data = [
+            'exam_paper_id' => $data['exam_paper_id'],
             'problem_id' => $data['problem_id'],
-            'file_name' => $data['file_name']
+            'fraction' => $data['fraction']
         ];
 
         return self::insert($insert_data);
