@@ -55,16 +55,11 @@ class Appendix extends \Pix_Table
         $this->_primary = 'id';
 
         $this->_columns['id'] = ['type' => 'int', 'size' => 10, 'auto_increment' => true];
-        $this->_columns['problem_id'] = ['type' => 'int', 'size' => 10, 'default' => ''];
-        $this->_columns['file_name'] = ['type' => 'varchar', 'size' => 255, 'default' => ''];
-        $this->_columns['create_at'] = ['type' => 'int', 'size' => 11,'default' => ''];
+        $this->_columns['problem_id'] = ['type' => 'int', 'size' => 10];
+        $this->_columns['file_name'] = ['type' => 'varchar', 'size' => 255];
+        $this->_columns['created_at'] = ['type' => 'int', 'size' => 11];
 				
-				$this->_relations['problem_id'] = array(
-						'rel' => 'has_one',
-						'type' => 'problem',
-						'foreign_key' => 'id',
-						'delete' => true
-				);
+				$this->_relations['problem_id'] = array('rel' => 'has_many', 'type' => 'Problem', 'foreign_key' => 'id', 'delete' => true);
     }
 
     /**
@@ -73,7 +68,7 @@ class Appendix extends \Pix_Table
      * @param array $data
      * @static
      * @access public
-     * @return void
+     * @return AppendixRow
      */
     public static function add($data)
     {
