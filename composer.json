@@ -8,7 +8,7 @@
                 "source": {
                     "url": "https://github.com/afutseng/pixframework.git",
                     "type": "git",
-                    "reference": "663b5e90503a352d22ebb8414a2a4e8719068cb7"
+                    "reference": "d9250f0f6d784684d2f586becd36f1ae0f2d1211"
                 },
                 "autoload": {
                     "psr-0": {

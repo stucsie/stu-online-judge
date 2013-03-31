@@ -1,5 +1,5 @@
 {
-    "hash": "c7e47ace194f1bddfdebdc83ec7e90f1",
+    "hash": "fd93930ad803680062faeec1a2645e3e",
     "packages": [
         {
             "name": "PasswordLib/PasswordLib",
@@ -56,7 +56,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/afutseng/pixframework.git",
-                "reference": "663b5e90503a352d22ebb8414a2a4e8719068cb7"
+                "reference": "d9250f0f6d784684d2f586becd36f1ae0f2d1211"
             },
             "type": "library",
             "autoload": {
@@ -67,7 +67,7 @@
             "include-path": [
                 "./"
             ],
-            "time": "2013-03-30 10:42:04"
+            "time": "2013-03-31 14:27:50"
         },
         {
             "name": "psr/log",
