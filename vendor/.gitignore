@@ -3,4 +3,5 @@ composer
 psr
 pixnet
 afutseng
+PasswordLib
 autoload.php

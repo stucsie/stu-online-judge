@@ -21,7 +21,8 @@
     ],
     "require": {
         "psr/log": "dev-master",
-        "afutseng/pixframework": "dev-master"
+        "afutseng/pixframework": "dev-master",
+        "PasswordLib/PasswordLib": "*"
     },
     "autoload": {
         "psr-0": {
