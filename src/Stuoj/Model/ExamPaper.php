@@ -57,7 +57,7 @@ class ExamPaper extends \Pix_Table
         $this->_columns['id'] = ['type' => 'int', 'size' => 10, 'auto_increment' => true];
         $this->_columns['exam_password'] = ['type' => 'int', 'size' => 5];
         $this->_columns['start_at'] = ['type' => 'int', 'size' => 10];
-        $this->_columns['end_at'] = ['type' => 'tinyint', 'size' => 4];
+        $this->_columns['end_at'] = ['type' => 'int', 'size' => 4];
     }
 
     /**
