@@ -44,7 +44,7 @@ class ExamProblemRow extends \Pix_Table_Row
  */
 class ExamProblem extends \Pix_Table
 {
-    public $_name = 'ExamProblem';
+    public $_name = 'exam_problem';
     public $_rowClass = '\\Stuoj\\Model\\ExamProblemRow';
 
     /**
@@ -54,13 +54,9 @@ class ExamProblem extends \Pix_Table
     {
         $this->_primary = 'id';
 
-        $this->_columns['id'] = ['type' => 'int', 'size' => 10, 'auto_increment' => true];
-        $this->_columns['exap_paper_id'] = ['type' => 'int', 'size' => 10];
-        $this->_columns['problem_id'] = ['type' => 'int', 'size' => 10];
-        $this->_columns['fraction'] = ['type' => 'tinyint', 'size' => 4, 'default' => '0'];
-
-		$this->_relations['problem'] = ['rel' => 'has_many', 'type' => 'Problem', 'foreign_key' => 'id', 'delete' => true];
-		$this->_relations['exam_paper'] = ['rel' => 'has_many', 'type' => 'ExamPaper', 'foreign_key' => 'id', 'delete' => true];
+        $this->_columns['id'] = ['type' => 'int', 'size' => 10, 'auto_increment' => true, 'unsigned' => true];
+        $this->_columns['content'] = ['type' => 'text'];
+        $this->_columns['correct_answer'] = ['type' => 'varchar', 'size' => 100];
     }
 
     /**
@@ -74,9 +70,8 @@ class ExamProblem extends \Pix_Table
     public static function add($data)
     {
         $insert_data = [
-            'exam_paper_id' => $data['exam_paper_id'],
-            'problem_id' => $data['problem_id'],
-            'fraction' => $data['fraction']
+            'content' => $data['content'],
+            'correct_answer' => $data['correct_answer'],
         ];
 
         return self::insert($insert_data);
