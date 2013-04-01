@@ -44,7 +44,7 @@ class ExamAnswerResultRow extends \Pix_Table_Row
  */
 class ExamAnswerResult extends \Pix_Table
 {
-    public $_name = 'ExamAnswerResult';
+    public $_name = 'exam_answer_result';
     public $_rowClass = '\\Stuoj\\Model\\ExamAnswerResultRow';
 
     /**
@@ -63,7 +63,7 @@ class ExamAnswerResult extends \Pix_Table
         $this->_columns['created_at'] = ['type' => 'int', 'size' => 10, 'unsigned' => true];
 
 		$this->_relations['problem'] = ['rel' => 'has_many', 'type' => 'ExamTest', 'foreign_key' => 'id', 'delete' => true];
-		$this->_relations['user_id'] = ['rel' => 'has_many', 'type' => 'User', 'foreign_key' => 'id', 'delete' => true];
+		$this->_relations['user'] = ['rel' => 'belongs_to', 'type' => 'User', 'foreign_key' => 'user_id'];
 		$this->_relations['exam_question'] = ['rel' => 'has_many', 'type' => 'ExamQuestio', 'foreign_key' => 'id', 'delete' => true];
     }
 
