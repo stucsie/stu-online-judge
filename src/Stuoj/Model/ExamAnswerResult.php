@@ -58,8 +58,8 @@ class ExamAnswerResult extends \Pix_Table
         $this->_columns['exam_test_id'] = ['type' => 'int', 'size' => 10, 'unsigned' => true];
         $this->_columns['user_id'] = ['type' => 'int', 'size' => 10, 'unsigned' => true];
         $this->_columns['exam_question_id'] = ['type' => 'int', 'size' => 10, 'unsigned' => true];
-        $this->_columns['score'] = ['type' => 'tinyint', 'size' => 4, 'unsigned' => true];
-        $this->_columns['status'] = ['type' => 'tinyint', 'size' => 4, 'unsigned' => true];
+        $this->_columns['score'] = ['type' => 'tinyint', 'size' => 4, 'unsigned' => true, 'default' => '0'];
+        $this->_columns['status'] = ['type' => 'tinyint', 'size' => 4, 'unsigned' => true, 'default' => '0'];
         $this->_columns['created_at'] = ['type' => 'int', 'size' => 10, 'unsigned' => true];
 
 		$this->_relations['exam_test'] = ['rel' => 'has_many', 'type' => 'ExamTest', 'foreign_key' => 'id', 'delete' => true];
