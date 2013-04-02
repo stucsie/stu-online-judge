@@ -56,7 +56,9 @@ class ExamProblem extends \Pix_Table
 
         $this->_columns['id'] = ['type' => 'int', 'size' => 10, 'auto_increment' => true, 'unsigned' => true];
         $this->_columns['content'] = ['type' => 'text'];
-        $this->_columns['correct_answer'] = ['type' => 'varchar', 'size' => 100];
+        $this->_columns['correct_answer'] = ['type' => 'text'];
+        $this->_columns['source_code'] = ['type' => 'text'];
+        $this->_columns['created_at'] = ['type' => 'int', 'size' => 10, 'unsigned' => true];
     }
 
     /**
@@ -72,6 +74,8 @@ class ExamProblem extends \Pix_Table
         $insert_data = [
             'content' => $data['content'],
             'correct_answer' => $data['correct_answer'],
+            'source_code' => $data['source_code'],
+            'created_at' => $data['created_at'],
         ];
 
         return self::insert($insert_data);
