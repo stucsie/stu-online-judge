@@ -30,4 +30,22 @@ class ProblemController extends BaseController
 
         $this->view->problem = $p;
     }
+
+    /**
+     * solveAction 解題頁面
+     *
+     * @access public
+     * @return void
+     */
+    public function solveAction()
+    {
+        $pid = $this->segment(1);
+        $p = Problem::find($pid);
+        if (! $p) {
+            throw new AlertException('沒有這個題目', '/problem/');
+        }
+
+        $this->view->problem = $p;
+
+    }
 }
