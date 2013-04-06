@@ -15,4 +15,6 @@ $obj = json_decode(file_get_contents(DB_CONFIGDIR . '/stuoj.json'));
 Pix_Table::setDefaultDb(new Pix_Table_Db_Adapter_MysqlConf($obj));
 Pix_Table::addStaticResultSetHelper('Pix_Array_Volume');
 
+\Resque::setBackend('localhost:6379');
+
 define('PROJECT_NAME', 'STU Online Judge');
