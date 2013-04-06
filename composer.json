@@ -22,7 +22,8 @@
     "require": {
         "psr/log": "dev-master",
         "afutseng/pixframework": "dev-master",
-        "PasswordLib/PasswordLib": "*"
+        "PasswordLib/PasswordLib": "*",
+        "chrisboulton/php-resque": "1.2.x"
     },
     "autoload": {
         "psr-0": {
