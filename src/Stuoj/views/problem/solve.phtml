@@ -4,8 +4,10 @@
     <h1>#<?= $this->problem->id . ': ' . $this->escape($this->problem->title) ?></h1>
     <p><?= $this->escape($this->problem->content) ?></p>
     <form action="/problem/solve/<?= $this->problem->id ?>" method="post">
+        <input name="sToken" type="hidden" value="<?= $this->escape($this->sToken) ?>">
         <div class="editor-container">
-            <div id="editor">// 在此貼上你的程式碼</div>
+            <div class="editor" id="source_code">// 在此貼上你的程式碼</div>
+            <textarea id="source_code-textarea" name="source_code"></textarea>
         </div><!-- /.edit-container -->
         <div class="form-actions">
             <button type="submit" class="btn">送出程式碼</button>
@@ -14,10 +16,14 @@
 </div>
 <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
-var editor = ace.edit("editor");
+var editor = ace.edit("source_code");
+var textarea = document.getElementById('source_code-textarea');
 editor.setTheme("ace/theme/solarized_light");
 editor.getSession().setMode("ace/mode/java");
 editor.getSession().setUseSoftTabs(true);
-editor.getSession().setAutoScrollEditorIntoView(true);
+editor.getSession().setValue(textarea.value);
+editor.getSession().on('change', function(){
+    textarea.value = editor.getSession().getValue();
+});
 </script>
 <?= $this->partial('/common/footer.phtml', $this) ?>
