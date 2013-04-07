@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 namespace Stuoj\Model;
 
 /**
@@ -8,6 +9,14 @@ namespace Stuoj\Model;
  * @uses \Pix_Table
  */
 class EAV extends \Pix_Table
+=======
+/**
+ * EAV
+ *
+ * @uses Pix_Table
+ */
+class EAV extends Pix_Table
+>>>>>>> 55367d48bcf5c2ae4fc7ee554e5a8fa9e0d6f792
 {
     /**
      * init
