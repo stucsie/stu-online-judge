@@ -54,6 +54,9 @@ class Solution extends \Pix_Table
     public $_name = 'solution';
     public $_rowClass = '\\Stuoj\\Model\\SolutionRow';
 
+    const LANG_JAVA = 1;
+    const LANG_CPP  = 2;
+
     /**
      * @codeCoverageIgnore
      */
@@ -95,5 +98,20 @@ class Solution extends \Pix_Table
         ];
 
         return self::insert($insert_data);
+    }
+
+    /**
+     * getAvailableLanguages
+     *
+     * @static
+     * @access public
+     * @return array
+     */
+    public static function getAvailableLanguages()
+    {
+        return [
+            self::LANG_JAVA => ['name' => 'Java', 'slug'  => 'java']
+            /*self::LANG_CPP  => ['name' => 'C/C++', 'slug' => 'c_cpp']*/
+        ];
     }
 }
