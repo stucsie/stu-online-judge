@@ -44,6 +44,18 @@ class SolutionRow extends \Pix_Table_Row
     }
 
     /**
+     * getStatusLabel
+     *
+     * @access public
+     * @return string
+     */
+    public function getStatusLabel()
+    {
+        $status = StatusHelper::getStatus($this->status);
+        return sprintf('<span class="label label-%s">%s</span>', $status['label_class'], $status['slug']);
+    }
+
+    /**
      * getLanguageName
      *
      * @access public
