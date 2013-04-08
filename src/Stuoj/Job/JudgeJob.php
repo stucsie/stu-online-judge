@@ -4,6 +4,7 @@ namespace Stuoj\Job;
 use Stuoj\Model\EAV;
 use Stuoj\Model\Solution;
 use Stuoj\Service\JudgeService;
+use Stuoj\Helper\StatusHelper;
 
 class JudgeJob
 {
@@ -28,6 +29,9 @@ class JudgeJob
         $input_data_file = $code_path . '/' . 'p' . $sol->problem->id . '.in';
         file_put_contents($input_data_file, $sol->problem->input);
 
+        $ans_file = $code_path . '/' . 'p' . $sol->problem->id . '.ans';
+        file_put_contents($ans_file, $sol->problem->output);
+
         $judge = new JudgeService();
         $code_file = $code_path . '/' . $filename;
         $judge->setCodeFile($code_file);
@@ -36,6 +40,7 @@ class JudgeJob
 
         if ($compi_err = $judge->getCompilingError()) {
             $sol->update([
+                'status' => StatusHelper::CE,
                 'execute_time' => 0,
                 'output' => $compi_err
             ]);
@@ -45,8 +50,9 @@ class JudgeJob
         $start_time = $this->getMicrotime();
         $judge->run($input_data_file);
         $end_time = $this->getMicrotime();
-
+        $judge->setAnswerFile($ans_file);
         $sol->update([
+            'status' => ($judge->checkAnswer()) ? StatusHelper::AC : StatusHelper::WA,
             'execute_time' => round($end_time - $start_time, 7),
             'output' => $judge->getRunOutput()
         ]);
