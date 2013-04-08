@@ -59,7 +59,9 @@ class Solution extends \Pix_Table
         $this->_columns['user_id']    = ['type' => 'int', 'size' => 10, 'unsigned' => true];
         $this->_columns['language']   = ['type' => 'tinyint', 'size' => 4];
         $this->_columns['source_code']  = ['type' => 'text'];
+        $this->_columns['execute_time'] = ['type' => 'double'];
         $this->_columns['file_name']  = ['type' => 'varchar', 'size' => 255, 'default' => ''];
+        $this->_columns['output']  = ['type' => 'text', 'default' => ''];
         $this->_columns['created_at'] = ['type' => 'int', 'size' => 11, 'unsigned' => true];
 
         $this->_relations['problem'] = ['rel' => 'belongs_to', 'type' => 'Stuoj\Model\Problem', 'foreign_key' => 'problem_id'];
