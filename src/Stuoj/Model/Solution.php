@@ -73,7 +73,7 @@ class Solution extends \Pix_Table
         $this->_columns['created_at'] = ['type' => 'int', 'size' => 11, 'unsigned' => true];
 
         $this->_relations['problem'] = ['rel' => 'belongs_to', 'type' => 'Stuoj\Model\Problem', 'foreign_key' => 'problem_id'];
-        $this->_relations['user'] = ['rel' => 'belongs_to', 'type' => 'User', 'foreign_key' => 'user_id'];
+        $this->_relations['user'] = ['rel' => 'belongs_to', 'type' => 'Stuoj\Model\User', 'foreign_key' => 'user_id'];
     }
 
     /**
