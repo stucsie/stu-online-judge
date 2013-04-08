@@ -5,6 +5,11 @@
     <p><?= $this->escape($this->problem->content) ?></p>
     <form action="/problem/solve/<?= $this->problem->id ?>" method="post">
         <input name="sToken" type="hidden" value="<?= $this->escape($this->sToken) ?>">
+        <select class="language-chooser" name="language">
+            <?php foreach ($this->languages as $lang_id => $lang): ?>
+            <option value="<?= $lang_id ?>" data-lang="<?= $lang['slug'] ?>"><?= $lang['name'] ?></option>
+            <?php endforeach; ?>
+        </select>
         <div class="editor-container">
             <div class="editor" id="source_code">// 在此貼上你的程式碼</div>
             <textarea id="source_code-textarea" name="source_code"></textarea>
@@ -24,6 +29,11 @@ editor.getSession().setUseSoftTabs(true);
 editor.getSession().setValue(textarea.value);
 editor.getSession().on('change', function(){
     textarea.value = editor.getSession().getValue();
+});
+
+$('.language-chooser').change(function(){
+    var lang = $(this).children('option:selected').data('lang');
+    editor.getSession().setMode("ace/mode/" + lang);
 });
 </script>
 <?= $this->partial('/common/footer.phtml', $this) ?>

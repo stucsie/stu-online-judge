@@ -63,6 +63,6 @@ class ProblemController extends BaseController
             $this->redirect('/status');
         }
         $this->view->problem = $p;
-
+        $this->view->languages = Solution::getAvailableLanguages();
     }
 }
