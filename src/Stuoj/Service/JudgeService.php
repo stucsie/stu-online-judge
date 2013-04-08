@@ -124,6 +124,7 @@ class JudgeService
 
         $file = basename($this->codeFile);
         $path = str_replace($file, '', $this->codeFile);
+        $file = str_replace(".java", '', $file);
 
         // 判斷是否有編譯成功
         if (!is_file($file.'.class')) {
