@@ -140,10 +140,6 @@ class JudgeService
      */
     public function checkAnswer()
     {
-        if (file_get_contents($this->answerFilePath) == $this->runOutput) {
-            return true;
-        } else {
-            return false;
-        }
+	return file_get_contents($this->answerFilePath) == $this->runOutput;
     }
 }
