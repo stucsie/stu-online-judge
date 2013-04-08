@@ -148,6 +148,26 @@ class JudgeService
      */
     public function checkAnswer()
     {
-	return file_get_contents($this->answerFilePath) == $this->runOutput;
+        $ans_array = file($this->answerFilePath);
+        $output_array = explode("\n", $this->runOutput);
+
+        $ans_size = count($ans_array);
+        $fail_line = -1;
+        for ($ans_idx = 0; $ans_idx < $ans_size; ++$ans_idx) {
+            $ans_line = trim($ans_array[$ans_idx]);
+
+            // 跳過"空行"
+            if (empty($ans_line)) {
+                continue;
+            }
+
+            // 逐行比對標準答案與使用者輸出
+            if ($ans_line != trim($output_array[$ans_idx])) {
+                $fail_line = $ans_idx;
+                break;
+            }
+        }
+
+        return (-1 === $fail_line);
     }
 }
