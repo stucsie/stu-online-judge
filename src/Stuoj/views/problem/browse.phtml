@@ -4,5 +4,6 @@
     <h1><?= $this->problem->title ?></h1>
     <p><?= $this->problem->content ?></p>
     <pre><?= $this->problem->source_code ?></pre>
+    <a class="btn" href="/problem/solve/<?= $this->problem->id ?>">解題</a>
 </div>
 <?= $this->partial('/common/footer.phtml', $this) ?>
