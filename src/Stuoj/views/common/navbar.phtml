@@ -7,7 +7,13 @@
                 <span class="icon-bar"></span>
             </a>
             <a href="/" class="brand"><?= PROJECT_NAME ?></a>
-            <p class="navbar-text pull-right"><a class="navbar-link" href="/login">登入</a></p>
+            <p class="navbar-text pull-right">
+            <?php if (! $this->account): ?>
+            <a class="navbar-link" href="/login">登入</a>
+            <?php else: ?>
+            <a class="navbar-link" href="/logout">登出</a>
+            <?php endif; ?>
+            </p>
 
             <div class="nav-collapse collapse">
                 <ul class="nav">
