@@ -8,7 +8,7 @@ class JudgeService
     private $codeFile = '';
     private $answerFilePath = '';
     private $compilingError = '';
-    private $iencoding = 'utf-8';
+    private $encoding = 'utf-8';
     private $runOutput='';
 
     public function __construct()
@@ -138,7 +138,7 @@ class JudgeService
      * @access public
      * @return boolean 正確為 true
      */
-    public function checkaAnswer()
+    public function checkAnswer()
     {
         if (file_get_contents($this->answerFilePath) == $this->runOutput) {
             return true;
