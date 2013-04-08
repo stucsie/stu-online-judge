@@ -55,6 +55,18 @@ class SolutionRow extends \Pix_Table_Row
         return array_key_exists($this->language, $langs)
             ? $langs[$this->language]['name'] : '';
     }
+
+    /**
+     * getExecuteTimeText
+     *
+     * @access public
+     * @return string 執行時間 e.g. "82ms" or "-"
+     */
+    public function getExecuteTimeText()
+    {
+        $t = intval($this->execute_time * 1000);
+        return (0 !== $t) ? "{$t}ms" : '-';
+    }
 }
 
 /**

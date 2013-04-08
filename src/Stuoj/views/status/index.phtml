@@ -9,6 +9,7 @@
                 <th>提交者</th>
                 <th>題目</th>
                 <th>評測結果</th>
+                <th>時間</th>
                 <th>程式碼</th>
                 <th>時間</th>
             </tr>
@@ -20,6 +21,7 @@
             <td><a href="/users/<?= $solution->user->account ?>"><?= $solution->user->name ?></a></td>
             <td><a href="/problem/browse/<?= $solution->problem->id ?>"><?= $solution->problem->title ?></a></td>
             <td><?= $solution->getStatus() ?></a></td>
+            <td><?= $solution->getExecuteTimeText() ?></a></td>
             <td><?= $solution->getLanguageName() ?></a></td>
             <td><?= date('Y-m-d H:i:s', $solution->created_at) ?></a></td>
         </tr>
