@@ -100,9 +100,15 @@ class JudgeService
         $this->compilingError = $compile_result_error;
     }
 
+    /**
+     * getRunOutput
+     *
+     * @access public
+     * @return string 執行結果
+     */
     public function getRunOutput()
     {
-	return $this->runOutput;
+    	return $this->runOutput;
     }
 
 
