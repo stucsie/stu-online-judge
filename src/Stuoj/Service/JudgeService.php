@@ -100,6 +100,12 @@ class JudgeService
         $this->compilingError = $compile_result_error;
     }
 
+    public function getRunOutput()
+    {
+	return $this->runOutput;
+    }
+
+
     /**
      * run
      * 執行程式，若 compiling 沒有成功則無法執行.
