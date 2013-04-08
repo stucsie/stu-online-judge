@@ -127,7 +127,7 @@ class JudgeService
         $file = str_replace(".java", '', $file);
 
         // 判斷是否有編譯成功
-        if (!is_file($file.'.class')) {
+        if (!is_file($path . $file.'.class')) {
             throw new \Exception('Not yet compiled or compiled error');
         }
 
