@@ -71,7 +71,7 @@ class JudgeService
      */
     public function getCompilingError()
     {
-        return $this->commilingError;
+        return $this->compilingError;
     }
 
     /**
