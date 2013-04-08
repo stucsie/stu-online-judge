@@ -96,7 +96,6 @@ class JudgeService
 
         $command = "javac -encoding $encoding -cp . $file 2>&1";
         $compile_result_error = shell_exec($command);
-        file_put_contents(__DIR__ . '/error.log', $compile_result_error);
         $this->compilingError = $compile_result_error;
     }
 
