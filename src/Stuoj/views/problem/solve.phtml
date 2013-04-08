@@ -26,7 +26,6 @@ var textarea = document.getElementById('source_code-textarea');
 editor.setTheme("ace/theme/solarized_light");
 editor.getSession().setMode("ace/mode/java");
 editor.getSession().setUseSoftTabs(true);
-editor.getSession().setValue(textarea.value);
 editor.getSession().on('change', function(){
     textarea.value = editor.getSession().getValue();
 });
