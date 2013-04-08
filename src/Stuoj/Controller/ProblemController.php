@@ -59,7 +59,8 @@ class ProblemController extends BaseController
             $solution = Solution::add($data);
             $args = ['code' => $code, 'solution_id' => $solution->id];
             \Resque::enqueue('default', 'Stuoj\Job\JudgeJob', $args);
-            $this->noview();
+
+            $this->redirect('/status');
         }
         $this->view->problem = $p;
 
