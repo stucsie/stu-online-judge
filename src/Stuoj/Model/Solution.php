@@ -2,6 +2,8 @@
 
 namespace Stuoj\Model;
 
+use Stuoj\Helper\StatusHelper;
+
 /**
  * SolutionRow
  *
@@ -35,6 +37,11 @@ class SolutionRow extends \Pix_Table_Row
 
         parent::update($update_data);
     }
+
+    public function getStatus()
+    {
+        return StatusHelper::getStatusName($this->status);
+    }
 }
 
 /**
@@ -59,6 +66,7 @@ class Solution extends \Pix_Table
         $this->_columns['user_id']    = ['type' => 'int', 'size' => 10, 'unsigned' => true];
         $this->_columns['language']   = ['type' => 'tinyint', 'size' => 4];
         $this->_columns['source_code']  = ['type' => 'text'];
+        $this->_columns['status']   = ['type' => 'tinyint', 'size' => 4, 'unsigned' => true, 'default' => 0];
         $this->_columns['execute_time'] = ['type' => 'double'];
         $this->_columns['file_name']  = ['type' => 'varchar', 'size' => 255, 'default' => ''];
         $this->_columns['output']  = ['type' => 'text', 'default' => ''];
