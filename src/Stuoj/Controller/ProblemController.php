@@ -49,10 +49,11 @@ class ProblemController extends BaseController
 
         if ($this->isPost()) {
             $code  = isset($_POST['source_code'])  ? $_POST['source_code'] : '';
+            $lang  = isset($_POST['language'])  ? intval($_POST['language']) : '';
             $data = [
                 'problem_id' => $pid,
                 'user_id' => $this->getUser()->id,
-                'language' => 1,
+                'language' => $lang,
                 'source_code' => $code,
                 'execute_time' => 0
             ];
