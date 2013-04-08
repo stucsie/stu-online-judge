@@ -84,14 +84,14 @@ class JudgeService
     public function compiling()
     {
         if (empty($this->codeFile)) {
-            throw new Exception('Not yet specified file');
+            throw new \Exception('Not yet specified file');
         }
 
         $file = $this->codeFile;
         $encoding = $this->encoding;
 
         if (!is_file($file)) {
-           throw new Exception('File not found');
+           throw new \Exception('File not found');
         }
 
         $command = "javac -encoding $encoding -cp . $file 2>&1";
@@ -119,7 +119,7 @@ class JudgeService
 
         // 判斷是否有編譯成功
         if (!is_file($file.'.class')) {
-            throw new Exception('Not yet compiled or compiled error');
+            throw new \Exception('Not yet compiled or compiled error');
         }
 
         $timeOut = $this->timeOut;
