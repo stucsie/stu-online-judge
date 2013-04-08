@@ -22,18 +22,32 @@ class StatusHelper extends \Pix_Helper
     const SE  = 10;
 
     static $STATUS_NAMES = array(
-        'Unknown',
-        'Accepted',
-        'Not Accept',
-        'Wrong Answer',
-        'Time Limit Exceeded',
-        'Memory Limit Exceeded',
-        'Output Limit Exceeded',
-        'Runtime Error',
-        'Restricted Function',
-        'Compile Error',
-        'System Error',
+        ['full' => 'Unknown',      'slug' => 'UN', 'label_class' => ''],
+        ['full' => 'Accepted',     'slug' => 'AC', 'label_class' => 'success'],
+        ['full' => 'Not Accept',   'slug' => 'NA', 'label_class' => 'important'],
+        ['full' => 'Wrong Answer', 'slug' => 'WA', 'label_class' => 'important'],
+        ['full' => 'Time Limit Exceeded',   'slug' => 'TLE', 'label_class' => 'warning'],
+        ['full' => 'Memory Limit Exceeded', 'slug' => 'MLE', 'label_class' => 'warning'],
+        ['full' => 'Output Limit Exceeded', 'slug' => 'OLE', 'label_class' => 'warning'],
+        ['full' => 'Runtime Error',         'slug' => 'RE', 'label_class' => 'inverse'],
+        ['full' => 'Restricted Function',   'slug' => 'RF', 'label_class' => 'inverse'],
+        ['full' => 'Compile Error',         'slug' => 'CE', 'label_class' => 'inverse'],
+        ['full' => 'System Error',          'slug' => 'SE', 'label_class' => 'inverse']
     );
+
+    /**
+     * getStatus
+     *
+     * @param integer $status_id
+     * @static
+     * @access public
+     * @return array
+     */
+    public static function getStatus($status_id)
+    {
+        return $status_id < count(self::$STATUS_NAMES)
+            ? self::$STATUS_NAMES[$status_id] : '';
+    }
 
     /**
      * getStatusName
@@ -45,7 +59,19 @@ class StatusHelper extends \Pix_Helper
      */
     public static function getStatusName($status_id)
     {
-        return $status_id < count(self::$STATUS_NAMES)
-            ? self::$STATUS_NAMES[$status_id] : '';
+        return self::getStatus($status_id)['full'];
+    }
+
+    /**
+     * getStatusSlug 取得狀態縮寫 e.g. "AC", "WA"
+     *
+     * @param integer $status_id
+     * @static
+     * @access public
+     * @return string
+     */
+    public static function getStatusSlug($status_id)
+    {
+        return self::getStatus($status_id)['slug'];
     }
 }
