@@ -2,6 +2,8 @@
 
 namespace Stuoj\Controller;
 
+use Stuoj\Model\User;
+
 class BaseController extends \Pix_Controller
 {
     protected $perm_service;
@@ -44,6 +46,11 @@ class BaseController extends \Pix_Controller
         return $session;
     }
 
+    public function getUser()
+    {
+        $account = $this->getSession()->account;
+        return User::getUserByAccount($account);
+    }
 
     public function segment($index)
     {
