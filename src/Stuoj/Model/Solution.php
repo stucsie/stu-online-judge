@@ -42,6 +42,19 @@ class SolutionRow extends \Pix_Table_Row
     {
         return StatusHelper::getStatusName($this->status);
     }
+
+    /**
+     * getLanguageName
+     *
+     * @access public
+     * @return string
+     */
+    public function getLanguageName()
+    {
+        $langs = Solution::getAvailableLanguages();
+        return array_key_exists($this->language, $langs)
+            ? $langs[$this->language]['name'] : '';
+    }
 }
 
 /**
