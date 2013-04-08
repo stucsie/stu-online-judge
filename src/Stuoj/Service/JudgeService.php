@@ -64,12 +64,12 @@ class JudgeService
     }
 
     /**
-     * getCommilingError
+     * getCompilingError
      *
      * @access public
      * @return void
      */
-    public function getCommilingError()
+    public function getCompilingError()
     {
         return $this->commilingError;
     }
@@ -135,7 +135,7 @@ class JudgeService
     }
 
     /**
-     * checkaAnswer
+     * checkAnswer
      * 判斷答案是否正確
      * @access public
      * @return boolean 正確為 true
