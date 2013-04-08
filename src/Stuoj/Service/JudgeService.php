@@ -115,7 +115,9 @@ class JudgeService
      */
     public function run($input_file_path = null)
     {
-        $file = str_replace(".java", '', $this->codeFile);
+
+        $file = basename($this->codeFile);
+        $path = str_replace($file, '', $this->codeFile);
 
         // 判斷是否有編譯成功
         if (!is_file($file.'.class')) {
@@ -123,7 +125,7 @@ class JudgeService
         }
 
         $timeOut = $this->timeOut;
-        $command = "timeout $timeOut java $file";
+        $command = "timeout $timeOut java -cp $path $file";
 
         if ($input_file_path) {
             $command .= " < $input_file_path";
