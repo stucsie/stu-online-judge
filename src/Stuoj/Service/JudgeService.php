@@ -8,7 +8,7 @@ class JudgeService
     private $codeFile = '';
     private $answerFilePath = '';
     private $compilingError = '';
-    private $iencoding = 'utf-8';
+    private $encoding = 'utf-8';
     private $runOutput='';
 
     public function __construct()
@@ -64,12 +64,12 @@ class JudgeService
     }
 
     /**
-     * getCommilingError
+     * getCompilingError
      *
      * @access public
      * @return void
      */
-    public function getCommilingError()
+    public function getCompilingError()
     {
         return $this->commilingError;
     }
@@ -84,14 +84,14 @@ class JudgeService
     public function compiling()
     {
         if (empty($this->codeFile)) {
-            throw new Exception('Not yet specified file');
+            throw new \Exception('Not yet specified file');
         }
 
         $file = $this->codeFile;
         $encoding = $this->encoding;
 
         if (!is_file($file)) {
-           throw new Exception('File not found');
+           throw new \Exception('File not found');
         }
 
         $command = "javac -encoding $encoding -cp . $file 2>&1";
@@ -99,6 +99,18 @@ class JudgeService
         file_put_contents(__DIR__ . '/error.log', $compile_result_error);
         $this->compilingError = $compile_result_error;
     }
+
+    /**
+     * getRunOutput
+     *
+     * @access public
+     * @return string 執行結果
+     */
+    public function getRunOutput()
+    {
+    	return $this->runOutput;
+    }
+
 
     /**
      * run
@@ -109,15 +121,17 @@ class JudgeService
      */
     public function run($input_file_path = null)
     {
-        $file = str_replace(".java", '', $this->codeFile);
+
+        $file = basename($this->codeFile);
+        $path = str_replace($file, '', $this->codeFile);
 
         // 判斷是否有編譯成功
         if (!is_file($file.'.class')) {
-            throw new Exception('Not yet compiled or compiled error');
+            throw new \Exception('Not yet compiled or compiled error');
         }
 
         $timeOut = $this->timeOut;
-        $command = "timeout $timeOut java $file";
+        $command = "timeout $timeOut java -cp $path $file";
 
         if ($input_file_path) {
             $command .= " < $input_file_path";
@@ -127,17 +141,13 @@ class JudgeService
     }
 
     /**
-     * checkaAnswer
+     * checkAnswer
      * 判斷答案是否正確
      * @access public
      * @return boolean 正確為 true
      */
-    public function checkaAnswer()
+    public function checkAnswer()
     {
-        if (file_get_contents($this->answerFilePath) == $this->runOutput) {
-            return true;
-        } else {
-            return false;
-        }
+	return file_get_contents($this->answerFilePath) == $this->runOutput;
     }
 }
