@@ -43,6 +43,11 @@ class SolutionRow extends \Pix_Table_Row
         return StatusHelper::getStatusName($this->status);
     }
 
+    public function isWA()
+    {
+        return ($this->status == StatusHelper::WA);
+    }
+
     /**
      * getStatusLabel
      *
