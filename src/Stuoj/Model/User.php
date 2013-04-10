@@ -61,6 +61,7 @@ class User extends \Pix_Table
         $this->_columns['email']        = ['type' => 'varchar', 'size' => 255, 'default' => ''];
         $this->_columns['created_at'] = ['type' => 'int', 'size' => 11, 'unsigned' => true];
 
+        $this->_relations['admin'] = ['rel' => 'has_one', 'type' => 'Stuoj\Model\Admin', 'foreign_key' => 'id'];
 
         $this->addIndex('email', ['email'], 'unique');
         $this->addIndex('account', ['account'], 'unique');
