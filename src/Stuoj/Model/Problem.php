@@ -61,6 +61,9 @@ class Problem extends \Pix_Table
         $this->_columns['answer'] = ['type' => 'varchar', 'size' => 100,'default' => ''];
         $this->_columns['input'] = ['type' => 'varchar', 'size' => 255,'default' => ''];
         $this->_columns['output'] = ['type' => 'varchar', 'size' => 255,'default' => ''];
+        $this->_columns['sample_input'] = ['type' => 'varchar', 'size' => 255,'default' => ''];
+        $this->_columns['sample_output'] = ['type' => 'varchar', 'size' => 255,'default' => ''];
+
     }
 
     /**
