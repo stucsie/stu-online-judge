@@ -27,7 +27,7 @@ class AlertException extends \Exception
     public function __construct($message, $url = null)
     {
         parent::__construct($message);
-        $this->_url = $url;
+        $this->url = $url;
     }
 
     /**
