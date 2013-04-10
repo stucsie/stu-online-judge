@@ -1,0 +1,10 @@
+<?= $this->partial('/common/header.phtml', $this) ?>
+<?= $this->partial('/common/navbar.phtml', $this) ?>
+<div class="container">
+    <h1>解題編號：<?= htmlspecialchars($this->solution->id) ?></h1>
+    <h2>題目：#<?= $this->solution->problem->id . ': ' . htmlspecialchars($this->solution->problem->title) ?><h2>
+    <h4>執行結果</h4>
+    <pre><?= htmlspecialchars($this->solution->output) ?></pre>
+    <a class="btn" href="/problem/solve/<?= $this->solution->problem->id ?>">再次解題</a>
+</div>
+<?= $this->partial('/common/footer.phtml', $this) ?>

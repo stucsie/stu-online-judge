@@ -20,7 +20,11 @@
             <td><?= $solution->id ?></td>
             <td><a href="/users/<?= $solution->user->account ?>"><?= $solution->user->name ?></a></td>
             <td><a href="/problem/browse/<?= $solution->problem->id ?>"><?= $solution->problem->title ?></a></td>
-            <td><?= $solution->getStatusLabel() ?></a></td>
+            <td><?= $solution->getStatusLabel() ?>
+                <?php if ($solution->isWA()): ?>
+                <a href="/solution/browse/<?= $solution->id ?>">詳細</a>
+                <?php endif; ?>
+            </td>
             <td><?= $solution->getExecuteTimeText() ?></a></td>
             <td><?= $solution->getLanguageName() ?></a></td>
             <td><?= date('Y-m-d H:i:s', $solution->created_at) ?></a></td>
