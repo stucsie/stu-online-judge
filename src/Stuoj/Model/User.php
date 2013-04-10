@@ -35,6 +35,17 @@ class UserRow extends \Pix_Table_Row
 
         parent::update($update_data);
     }
+
+    /**
+     * isAdmin 是否具備管理權限
+     *
+     * @access public
+     * @return boolean
+     */
+    public function isAdmin()
+    {
+        return $this->admin ? true : false;
+    }
 }
 
 /**
