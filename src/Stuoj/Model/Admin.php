@@ -58,6 +58,7 @@ class Admin extends \Pix_Table
         $this->_columns['name']         = ['type' => 'varchar', 'size' => 50,  'default' => ''];
         $this->_columns['email']        = ['type' => 'varchar', 'size' => 255, 'default' => ''];
 
+        $this->_relations['user'] = ['rel' => 'belongs_to', 'type' => 'Stuoj\Model\User', 'foreign_key' => 'id'];
 
         $this->addIndex('email', ['email'], 'unique');
 
