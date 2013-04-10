@@ -61,7 +61,7 @@ class Problem extends \Pix_Table
         $this->_columns['output'] = ['type' => 'varchar', 'size' => 255,'default' => ''];
         $this->_columns['sample_input'] = ['type' => 'varchar', 'size' => 255,'default' => ''];
         $this->_columns['sample_output'] = ['type' => 'varchar', 'size' => 255,'default' => ''];
-
+        $this->_columns['created_at'] = ['type' => 'int', 'size' => 10, 'unsigned' => true];
     }
 
     /**
@@ -80,7 +80,8 @@ class Problem extends \Pix_Table
             'input'       => $data['input'],
             'output'      => $data['output'],
             'sample_input' => $data['sample_input'],
-            'smaple_output' => $data['sample_output']
+            'smaple_output' => $data['sample_output'],
+            'created_at' => $data['created_at']
         ];
 
         return self::insert($insert_data);
