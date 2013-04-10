@@ -80,7 +80,7 @@ class Problem extends \Pix_Table
             'input'       => $data['input'],
             'output'      => $data['output'],
             'sample_input' => $data['sample_input'],
-            'smaple_output' => $data['sample_output'],
+            'sample_output' => $data['sample_output'],
             'created_at' => $data['created_at']
         ];
 
