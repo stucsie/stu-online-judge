@@ -66,4 +66,43 @@ class ProblemController extends BaseController
         $this->view->problem = $p;
         $this->view->languages = Solution::getAvailableLanguages();
     }
+
+    /**
+     * addAction 新增題目頁面
+     *
+     * @access public
+     * @return void
+     */
+
+    public function addAction()
+    {
+        $this->checkLogin();
+
+        if (! $this->getUser->admin) {
+            /* 這個使用者沒有 admin 轉回首頁 */
+            $this->redirect('/');
+        }
+
+        if ($this->isPost()) {
+            $title  = isset($_POST['title'])  ? $_POST['title'] : '';
+            $content = isset($_POST['content']) ? $_POST['content'] : '';
+            $input = isset($_POST['input']) ? $_POST['input'] : '';
+            $output = isset($_POST['output']) ? $_POST['output'] : '';
+            $sample_input = isset($_POST['sample_input']) ? $_POST['sample_input'] : '';
+            $sample_output = isset($_POST['sample_output']) ? $_POST['sample_output'] : '';
+
+            $data = [
+                'title' => $title,
+                'content' => $content,
+                'input' => $input,
+                'output' => $output,
+                'sample_input' => $sample_input,
+                'sample_output' => $sample_output
+            ];
+
+            $problem = Problem::add($data);
+
+            $this->redirect('/problem/list');
+        }
+    }
 }
