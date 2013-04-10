@@ -57,8 +57,6 @@ class Problem extends \Pix_Table
         $this->_columns['id'] = ['type' => 'int', 'size' => 10, 'unsigned' => true, 'auto_increment' => true];
         $this->_columns['title'] = ['type' => 'varchar', 'size' => 255,'default' => ''];
         $this->_columns['content'] = ['type' => 'text', 'default' => ''];
-        $this->_columns['source_code'] = ['type' => 'text', 'default' => ''];
-        $this->_columns['answer'] = ['type' => 'varchar', 'size' => 100,'default' => ''];
         $this->_columns['input'] = ['type' => 'varchar', 'size' => 255,'default' => ''];
         $this->_columns['output'] = ['type' => 'varchar', 'size' => 255,'default' => ''];
         $this->_columns['sample_input'] = ['type' => 'varchar', 'size' => 255,'default' => ''];
@@ -79,10 +77,10 @@ class Problem extends \Pix_Table
         $insert_data = [
             'title'       => $data['title'],
             'content'     => $data['content'],
-            'source_code' => $data['source_code'],
-            'answer'      => $data['answer'],
             'input'       => $data['input'],
-            'output'      => $data['output']
+            'output'      => $data['output'],
+            'sample_input' => $data['sample_input'],
+            'smaple_output' => $data['sample_output']
         ];
 
         return self::insert($insert_data);
