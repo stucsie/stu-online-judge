@@ -24,6 +24,7 @@ class BaseController extends \Pix_Controller
             $view->csrfToken = $view->sToken = $session->sToken;
             if ($session->account) {
                 $view->account = $session->account;
+                $view->user = $this->getUser();
             }
         }
 
