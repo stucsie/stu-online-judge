@@ -44,7 +44,7 @@ class AdminRow extends \Pix_Table_Row
  */
 class Admin extends \Pix_Table
 {
-    public $_name = 'Admin';
+    public $_name = 'admin';
     public $_rowClass = '\\Stuoj\\Model\\AdminRow';
 
     /**
