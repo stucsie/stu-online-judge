@@ -2,7 +2,7 @@
 <?= $this->partial('/common/navbar.phtml', $this) ?>
 <div class="container">
     <h1>#<?= $this->problem->id . ': ' . $this->escape($this->problem->title) ?></h1>
-    <p><?= $this->escape($this->problem->content) ?></p>
+    <p><?= nl2br($this->escape($this->problem->content)) ?></p>
     <form action="/problem/solve/<?= $this->problem->id ?>" method="post">
         <input name="sToken" type="hidden" value="<?= $this->escape($this->sToken) ?>">
         <select class="language-chooser" name="language">
