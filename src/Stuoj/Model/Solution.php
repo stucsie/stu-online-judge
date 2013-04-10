@@ -13,6 +13,7 @@ class SolutionRow extends \Pix_Table_Row
 {
     public function preInsert()
     {
+        $this->created_from = ip2long($_SERVER['REMOTE_ADDR']);
         $this->created_at = time();
     }
 
@@ -115,6 +116,7 @@ class Solution extends \Pix_Table
         $this->_columns['execute_time'] = ['type' => 'double'];
         $this->_columns['file_name']  = ['type' => 'varchar', 'size' => 255, 'default' => ''];
         $this->_columns['output']  = ['type' => 'text', 'default' => ''];
+        $this->_columns['created_from'] = ['type' => 'int', 'size' => 10, 'unsigned' => true, 'default' => 0];
         $this->_columns['created_at'] = ['type' => 'int', 'size' => 11, 'unsigned' => true];
 
         $this->_relations['problem'] = ['rel' => 'belongs_to', 'type' => 'Stuoj\Model\Problem', 'foreign_key' => 'problem_id'];
