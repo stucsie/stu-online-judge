@@ -3,9 +3,9 @@
 <div class="container">
     <h1><?= htmlspecialchars($this->problem->title) ?></h1>
     <p><?= nl2br(htmlspecialchars($this->problem->content)) ?></p>
-    <h4>輸入</h4>
+    <h4>範例輸入</h4>
     <pre><?= htmlspecialchars($this->problem->sample_input) ?></pre>
-    <h4>輸出</h4>
+    <h4>範例輸出</h4>
     <pre><?= htmlspecialchars($this->problem->sample_output) ?></pre>
     <a class="btn" href="/problem/solve/<?= $this->problem->id ?>">解題</a>
 </div>
