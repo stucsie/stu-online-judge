@@ -78,7 +78,7 @@ class ProblemController extends BaseController
     {
         $this->checkLogin();
 
-        if (! $this->getUser->admin) {
+        if (! $this->getUser()->admin) {
             /* 這個使用者沒有 admin 轉回首頁 */
             $this->redirect('/');
         }
