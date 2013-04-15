@@ -6,31 +6,31 @@
         <input name="sToken" type="hidden" value="<?= $this->escape($this->sToken) ?>">
         <div class="title-container">
             <label>題目名稱</label>
-            <input type="text" name="title" />
+            <input class="input-xlarge" type="text" name="title" />
         </div><!-- /.title-container -->
         <div class="content-container">
             <label>題目描述</label>
-            <textarea name="content" class=".input-large" rows="3"></textarea>
+            <textarea name="content" class="field span6" rows="8"></textarea>
         </div><!-- /.content-container -->
         <div class="sample_input-container">
             <label>題目測資</label>
-            <textarea name="sample_input" rows="3"></textarea>
+            <textarea name="sample_input" class="field span6" rows="8"></textarea>
         </div><!-- /.sample-input-container -->
         <div class="sample_output-container">
             <label>題目答案</label>
-            <textarea name="sample_output" rows="3"></textarea>
+            <textarea name="sample_output" class="field span6" rows="8"></textarea>
         </div><!-- /.sample-output-container -->
         <div class="input-container">
             <label>範例測資</label>
-            <textarea name="input" rows="3"></textarea>
+            <textarea name="input" class="field span6" rows="8"></textarea>
         </div><!-- /.input-container -->
         <div class="output-container">
             <label>範例結果</label>
-            <textarea name="output" rows="3"></textarea>
+            <textarea name="output" class="field span6" rows="8"></textarea>
         </div><!-- /.output-container -->
         <div class="form-actions">
             <button type="submit" class="btn">完成</button>
-        </div>
+        </div><!-- /.form-actions -->
     </form>
 </div>
 <?= $this->partial('/common/footer.phtml', $this) ?>
