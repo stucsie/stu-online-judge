@@ -12,7 +12,7 @@ class StatusController extends BaseController
     public function indexAction()
     {
         $v = $this->view;
-        $v->solutions = Solution::search(1)->order('id DESC');
+        $v->solutions = Solution::search(1)->order('id DESC')->limit(50);
         //return $this->redraw('/problem/index.phtml');
     }
 
