@@ -22,7 +22,7 @@ class JudgeJob
         $sol->update(['file_name' => $filename]);
 
         // Replace user's custom Java class name to 'JAVA{timestamp}'
-        $pattern = '/\s*(class)\s+([a-zA-Z0-9_]+)\s+\{\s+(public)\s+(static)\s+(void)\s+(main)/';
+        $pattern = '/\s*(class)\s+([a-zA-Z0-9_]+)\s*\{\s+(public)\s+(static)\s+(void)\s+(main)/';
         $user_code = preg_replace($pattern, " $1 JAVA$ts {  \n$3 $4 $5 $6 "  , $this->args['code']);
         file_put_contents($code_path . '/' . $filename, $user_code);
 
