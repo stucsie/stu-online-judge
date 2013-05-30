@@ -20,11 +20,12 @@ class SolutionController extends BaseController
         }
 
         // 只開放觀看 WA 的執行結果
+
         if (! $sol->isWA()) {
             throw new AlertException('只開放觀看 WA 的執行結果喔', '/status');
             return $this->noview();
         }
-
+        $sol->output = '暫時不開放WA詳細資料';
         $v->solution = $sol;
     }
 
